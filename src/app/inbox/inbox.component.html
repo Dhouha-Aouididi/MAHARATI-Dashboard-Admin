@@ -1,0 +1,68 @@
+<div class="container-fluid py-4">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search demandes" aria-label="Search demandes" aria-describedby="search-addon" (input)="applyFilter($event)">
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <h6>Demandes List</h6>
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th><b>Username</b></th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Subject</th>
+                  <th>Message</th>
+                  <th>Image</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let demande of filteredDemandes">
+                  <td>{{ demande.username }}</td>
+                  <td>{{ demande.email }}</td>
+                  <td>{{ demande.phone }}</td>
+                  <td>{{ demande.subject }}</td>
+                  <td>{{ demande.message }}</td>
+                  <td>
+                    <img [src]="demande.image" alt="Demande Image" style="max-width: 100px; max-height: 100px;">
+                  </td>
+                  <td>
+                    <button class="btn btn-sm btn-primary" (click)="openEmailToAccept(demande)">Accept</button>
+                    <button class="btn btn-sm btn-danger" (click)="openConfirmationModal(demande)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div id="confirmationModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">Confirm Deletion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeConfirmationModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this demande?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeConfirmationModal()">Cancel</button>
+        <button type="button" class="btn btn-danger" (click)="deleteDemande()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

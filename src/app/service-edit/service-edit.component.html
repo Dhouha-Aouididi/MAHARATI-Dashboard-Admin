@@ -1,0 +1,52 @@
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header pb-0">
+            <div class="d-flex align-items-center">
+              <p class="mb-0">Edit Service</p>
+              <button class="btn btn-primary btn-sm ms-auto">Settings</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form" class="w-full" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" formControlName="title">
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" formControlName="description"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <input type="text" class="form-control" id="category" formControlName="category">
+              </div>
+              <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" class="form-control" id="price" formControlName="price">
+              </div>
+              <div class="mb-3">
+                <label for="availability" class="form-label">Availability</label>
+                <select class="form-select" id="availability" formControlName="availability">
+                  <option value="available">Available</option>
+                  <option value="not_available">Not Available</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="file" class="form-control" id="image" (change)="onFileChange($event)">
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="submitForm()">Save</button>
+              <button type="button" class="btn btn-outline-secondary">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Success Message Section -->
+  <div *ngIf="message" class="alert alert-success mt-3 mx-4" role="alert">
+    {{ message }}
+  </div>

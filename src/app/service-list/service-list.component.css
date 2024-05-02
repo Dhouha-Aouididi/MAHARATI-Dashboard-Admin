@@ -1,0 +1,6 @@
+/* Styles pour les miniatures d'images */
+img.service-thumbnail {
+    max-width: 100px; /* Largeur maximale */
+    max-height: 100px; /* Hauteur maximale */
+  }
+  
