@@ -38,15 +38,6 @@ export class ServiceService {
     return this.http.get<Service>(url);
   }
 
-
-  // updateService(id: number, formData: FormData): Observable<any> {
-  //   const url = `${this.apiUrl}/${id}`;
-  //   return this.http.put<any>(url, formData, {
-  //     reportProgress: true,
-  //     observe: 'events',
-  //   });
-  // }
-
   updateService(id: number, formData: FormData): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.put<any>(url, formData, {

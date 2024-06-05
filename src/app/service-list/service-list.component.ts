@@ -16,6 +16,8 @@ export class ServiceListComponent implements OnInit {
   filteredServices: Service[] = []; // Array to hold filtered services
   errorMessage: string = '';
   serviceToDelete: Service | null = null; // Variable to store the service to be deleted
+  p: number = 1;
+  itemsPerPage: number = 3;
 
   constructor(private serviceService: ServiceService, private router: Router) { }
 
@@ -76,6 +78,16 @@ export class ServiceListComponent implements OnInit {
   editService(service: Service) {
     // Redirect to edit page with service ID
     this.router.navigate(['/edit-service', service.id]); // Update the route as per your routing configuration
+  }
+
+  onPageChange(event: number): void {
+    if (event >= 1 && event <= this.getTotalPages()) {
+      this.p = event;
+    }
+  }
+
+  getTotalPages(): number {
+    return Math.ceil(this.services.length / this.itemsPerPage);
   }
 
 }

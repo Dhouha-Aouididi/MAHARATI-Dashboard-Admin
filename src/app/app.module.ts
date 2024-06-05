@@ -19,7 +19,9 @@ import { ServiceEditComponent } from './service-edit/service-edit.component';
 import { ProviderListComponent } from './provider-list/provider-list.component';
 import { ProviderEditComponent } from './provider-edit/provider-edit.component';
 import { InboxComponent } from './inbox/inbox.component';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { BookingModalComponent } from './booking-modal/booking-modal.component'; 
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -38,14 +40,17 @@ import { InboxComponent } from './inbox/inbox.component';
     ServiceEditComponent,
     ProviderListComponent,
     ProviderEditComponent,
-    InboxComponent
+    InboxComponent,
+    BookingModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FullCalendarModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,11 +13,9 @@
         <div class="col-auto my-auto">
           <div class="h-100">
             <h5 class="mb-1">
-              Add a Service
+              Ajouter un service
             </h5>
-            <!-- <p class="mb-0 font-weight-bold text-sm">
-              Public Relations
-            </p> -->
+
           </div>
         </div>
         <!-- <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
@@ -53,7 +51,7 @@
         <div class="card">
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
-              <p class="mb-0">Edit Service</p>
+              <p class="mb-0">Création d'un service à domicile</p>
               <!-- <button class="btn btn-primary btn-sm ms-auto">Settings</button> -->
             </div>
           </div>
@@ -62,7 +60,7 @@
                 <form [formGroup]="form" (ngSubmit)="submitForm()" class="w-full" action="/create-service" method="POST" enctype="multipart/form-data">
 
               <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
+                <label for="title" class="form-label">Titre</label>
                 <input type="text" class="form-control" id="title" value="Service Title" formControlName="title">
               </div>
               <div class="mb-3">
@@ -70,24 +68,20 @@
                 <textarea class="form-control" id="description" formControlName="description">Service Description</textarea>
               </div>
               <div class="mb-3">
-                <label for="category" class="form-label">Category</label>
+                <label for="category" class="form-label">Categorie</label>
                 <input type="text" class="form-control" id="category" value="Service Category" formControlName="category">
               </div>
               <div class="mb-3">
-                <label for="price" class="form-label">Price</label>
+                <label for="price" class="form-label">Prix</label>
                 <input type="number" class="form-control" id="price" value="Service Price" formControlName="price">
               </div>
               <div class="mb-3">
-                <label for="availability" class="form-label">Availability</label>
+                <label for="availability" class="form-label">Disponibilité</label>
                 <select class="form-select" id="availability" formControlName="availability">
-                  <option value="available" selected>Available</option>
-                  <option value="not_available">Not Available</option>
+                  <option value="available" selected>Disponible</option>
+                  <option value="not_available">Non Disponible</option>
                 </select>
               </div>
-              <!-- <div class="mb-3">
-                <label for="ratings" class="form-label">Ratings</label>
-                <input type="text" class="form-control" id="ratings" value="Service Ratings">
-              </div> -->
 
                          <!-- Progress Bar -->
   <div class="progress form-group" *ngIf="percentDone">

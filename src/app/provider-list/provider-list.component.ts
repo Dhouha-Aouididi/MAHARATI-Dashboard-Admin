@@ -16,6 +16,9 @@ export class ProviderListComponent implements OnInit {
   errorMessage: string = '';
   providerToDelete: Provider | null = null; // Variable to store the provider to be deleted
 
+  p: number = 1;
+  itemsPerPage: number = 3;
+
   constructor(private providerService: ProviderService, private router: Router) { } // Inject ProviderService
 
   ngOnInit(): void {
@@ -74,6 +77,16 @@ export class ProviderListComponent implements OnInit {
   editProvider(provider: Provider) {
     // Redirect to edit page with provider ID
     this.router.navigate(['/edit-provider', provider.id]); // Update the route as per your routing configuration
+  }
+
+  onPageChange(event: number): void {
+    if (event >= 1 && event <= this.getTotalPages()) {
+      this.p = event;
+    }
+  }
+
+  getTotalPages(): number {
+    return Math.ceil(this.providers.length / this.itemsPerPage);
   }
 
 }
